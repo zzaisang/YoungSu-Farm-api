@@ -1,0 +1,45 @@
+service:
+  phase: "local"
+  phaseName: "로컬"
+
+server:
+  port: 8200
+
+spring:
+  devtools:
+    livereload:
+      enabled: true
+  thymeleaf:
+    cache: false
+    prefix: file:src/main/resources/templates/
+  resources:
+    static-locations: file:src/main/resources/static
+  autoconfigure:
+
+
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+  main:
+    allow-bean-definition-overriding: true
+  activemq:
+    broker-url:
+  servlet:
+    multipart:
+      max-file-size: 12MB
+      max-request-size: 15MB
+      
+logging:
+  config: classpath:logback-local.xml
+  level:
+    # HTTP Request 정보 출력
+    org.springframework.web.filter.CommonsRequestLoggingFilter: debug
+    com.laundrygo: debug
+    # log4jdbc-log4j2 logging
+    org.hibernate.dialect: off
+    # 아래 설정은 SQL 파라미터를 표시하되 과도한 로그가 찍히지 않도록 한다.
+    org.hibernate.type.BasicTypeRegistry: warn
+    # db 파라메터 정보
+    org.hibernate.type.descriptor.sql: trace

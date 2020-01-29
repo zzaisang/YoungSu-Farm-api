@@ -1,0 +1,11 @@
+.idea/
+/*.sh
+/out/
+/build/
+/classes/
+/src/main/generated/
+/src/test/
+/src-gen/
+*.iml
+/http
+.gradle
