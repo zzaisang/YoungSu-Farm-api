@@ -9,3 +9,5 @@
 *.iml
 /http
 .gradle
+
+*.yml
