@@ -47,6 +47,7 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-security")
 	implementation("com.querydsl:querydsl-jpa")
 	annotationProcessor ("org.springframework.boot:spring-boot-configuration-processor")
+	implementation("com.auth0:java-jwt:3.8.3")
 	testImplementation("org.springframework.boot:spring-boot-starter-test") {
 		exclude("org.junit.vintage:junit-vintage-engine")
 	}
