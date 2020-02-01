@@ -43,6 +43,7 @@ sourceSets {
 }
 
 dependencies {
+	implementation("org.springframework.boot:spring-boot-starter-web")
 	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 	implementation("org.springframework.boot:spring-boot-starter-security")
 	implementation("com.querydsl:querydsl-jpa")
@@ -60,5 +61,8 @@ dependencies {
 	testAnnotationProcessor("org.projectlombok:lombok")
 
 	implementation("com.github.gavlyukovskiy:p6spy-spring-boot-starter:1.5.7")
+	implementation("com.fasterxml.jackson.datatype:jackson-datatype-hibernate5:2.8.10")
+	compileOnly("org.apache.commons:commons-lang3:3.7")
+	compileOnly("org.hibernate:hibernate-validator:6.1.0.Final")
 }
 
