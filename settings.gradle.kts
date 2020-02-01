@@ -1,1 +1,1 @@
-rootProject.name = "farm"
+rootProject.name = "YongSu-Farm-Api"
