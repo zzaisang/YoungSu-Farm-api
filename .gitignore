@@ -10,4 +10,5 @@
 /http
 .gradle
 
-*.yml
+*dev-.yml
+*live-.yml

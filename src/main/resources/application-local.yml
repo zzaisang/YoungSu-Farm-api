@@ -1,0 +1,52 @@
+service:
+  phase: "local"
+  phaseName: "로컬"
+
+server:
+  port: 8200
+
+spring:
+  datasource:
+    url: jdbc:mariadb://localhost:3306/ysf_dev?autoReconnect=true&useUnicode=true&characterEncoding=UTF-8&tinyInt1isBit=false
+    username: ysf_dev
+    password: zaq1234!
+    dbcp2:
+      initial-size: 5
+      max-total: 5
+      max-idle: 5
+      min-idle: 2
+      sql-script-encoding: UTF-8
+  jpa:
+    properties:
+      hibernate:
+        default_batch_fetch_size: 1000
+        format_sql: true
+  output:
+    ansi:
+      enabled: always
+
+
+jwt:
+  signing-key: A1ID2fEN
+  refresh-signing-key: K8TqNt3P
+  refresh-expired-day: 14
+
+  main:
+    allow-bean-definition-overriding: true
+  servlet:
+    multipart:
+      max-file-size: 12MB
+      max-request-size: 15MB
+
+logging:
+  config: classpath:logback-local.xml
+  level:
+    # HTTP Request 정보 출력
+    org.springframework.web.filter.CommonsRequestLoggingFilter: debug
+    com.laundrygo: debug
+    # log4jdbc-log4j2 logging
+    org.hibernate.dialect: off
+    # 아래 설정은 SQL 파라미터를 표시하되 과도한 로그가 찍히지 않도록 한다.
+    org.hibernate.type.BasicTypeRegistry: warn
+    # db 파라메터 정보
+    org.hibernate.type.descriptor.sql: trace
