@@ -1,4 +1,4 @@
-package com.yongsu.farm.domain.product;
+package com.yongsu.farm.domain.policy;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -17,23 +17,23 @@ import java.util.stream.Stream;
  */
 @Getter
 @AllArgsConstructor
-public enum ProductUnitType {
+public enum UnitType {
 
     APPLE_TYPE(0,"과");
     
     private int id;
     private String name;
 
-    private static Map<Integer, ProductUnitType> tables = Stream.of(values()).collect(Collectors.toMap(ProductUnitType::getId, Function.identity()));
+    private static Map<Integer, UnitType> tables = Stream.of(values()).collect(Collectors.toMap(UnitType::getId, Function.identity()));
 
-    public static ProductUnitType valueOfId(int key) {
+    public static UnitType valueOfId(int key) {
         return tables.get(key);
     }
 
     @Component
-    public static class ProductUnitTypeConverter implements Converter<Integer, ProductUnitType> {
-        public ProductUnitType convert(Integer source) {
-            return ProductUnitType.valueOfId(source);
+    public static class ProductUnitTypeConverter implements Converter<Integer, UnitType> {
+        public UnitType convert(Integer source) {
+            return UnitType.valueOfId(source);
         }
     }
 }

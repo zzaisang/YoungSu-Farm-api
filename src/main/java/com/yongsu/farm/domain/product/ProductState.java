@@ -19,8 +19,8 @@ import java.util.stream.Stream;
 @AllArgsConstructor
 public enum ProductState {
 
-    SALE(0,"판매중"),
-    BEFORE_SALE(1,"판매준비중"),
+    SALE(0,"판매 중"),
+    BEFORE_SALE(1,"판매 준비 중"),
     FADE_OUT(2,"상품 미 노출"),
     SOLD_OUT(3,"재고 없음");
 

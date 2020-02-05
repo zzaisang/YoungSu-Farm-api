@@ -1,5 +1,6 @@
 package com.yongsu.farm.domain.product;
 
+import com.yongsu.farm.domain.policy.PackagePolicy;
 import lombok.*;
 
 import javax.persistence.*;
@@ -13,7 +14,7 @@ import java.time.OffsetDateTime;
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@ToString(exclude = {"productCategory"})
+@ToString(exclude = {"productCategory","packagePolicy","productStock"})
 public class Product {
 
     @Id
@@ -25,10 +26,9 @@ public class Product {
     @Enumerated(EnumType.STRING)
     private ProductState state;
 
-    @Enumerated(EnumType.STRING)
-    private ProductUnitType unitType;
+    private int price;
 
-    private int unitCnt;
+    private int maxPurchaseCnt;
 
     private OffsetDateTime createdAt;
 
@@ -36,12 +36,20 @@ public class Product {
     @JoinColumn(name = "product_category_id",nullable = false,updatable = false)
     private ProductCategory productCategory;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "package_policy_id",nullable = false,updatable = false)
+    private PackagePolicy packagePolicy;
+
+    @OneToOne
+    @JoinColumn(name = "product_stock_id")
+    private ProductStock productStock;
+
     @Builder
-    public Product(String name, ProductState state, ProductUnitType unitType, int unitCnt, OffsetDateTime createdAt) {
+    public Product(String name, ProductState state, int price, int maxPurchaseCnt, OffsetDateTime createdAt) {
         this.name = name;
         this.state = state;
-        this.unitType = unitType;
-        this.unitCnt = unitCnt;
+        this.price = price;
+        this.maxPurchaseCnt = maxPurchaseCnt;
         this.createdAt = createdAt;
     }
 }
