@@ -18,8 +18,11 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 @Order(1)
 public class BusinessExceptionAdvice {
 
+    /**
+     * 예상할 수 있는 Business Exception 을 처리하는 ExceptionHandler
+     **/
     @ExceptionHandler(BusinessException.class)
-    public ResponseEntity<ApiResult> laundryGoProcessException(BusinessException e) {
+    public ResponseEntity<ApiResult> BusinessExceptionHandler(BusinessException e) {
         log.error("{}", e);
         return ApiResult.fail(e.getCode(),e.getMessage()).createResponseEntity();
     }

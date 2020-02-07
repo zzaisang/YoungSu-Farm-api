@@ -33,12 +33,4 @@ public class ProductController {
                 ApiResult.fail(codeResult.getCode(), codeResult.getMessage()).createResponseEntity();
     }
 
-    @GetMapping
-    public ResponseEntity test(){
-
-        if(1 == 1) throw new BusinessException(Code.BAD_REQUEST,"크크크 테스트입니다.");
-
-        return ApiResult.fail(Code.BAD_REQUEST).createResponseEntity();
-    }
-
 }
