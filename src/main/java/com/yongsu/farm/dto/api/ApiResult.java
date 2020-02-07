@@ -4,8 +4,7 @@ package com.yongsu.farm.dto.api;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 import org.springframework.http.HttpStatus;
@@ -24,6 +23,7 @@ import java.util.function.Predicate;
 @JsonInclude(value = JsonInclude.Include.NON_NULL)
 @Getter
 @Setter
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class ApiResult<T> {
 
     @JsonProperty("c")
@@ -40,6 +40,15 @@ public class ApiResult<T> {
 
     @JsonIgnore
     private HttpStatus httpStatus;
+
+    @Builder
+    public ApiResult(Code code, String message, T data, long timestamp, HttpStatus httpStatus) {
+        this.code = code;
+        this.message = message;
+        this.data = data;
+        this.timestamp = timestamp;
+        this.httpStatus = httpStatus;
+    }
 
     @JsonIgnore
     public boolean isSucceeded() {
