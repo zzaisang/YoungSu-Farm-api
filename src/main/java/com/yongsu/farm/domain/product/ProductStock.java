@@ -23,6 +23,9 @@ public class ProductStock {
 
     private int stock;
 
+    @OneToOne
+    private Product product;
+
     @Builder
     public ProductStock(int initStock, int stock) {
         this.initStock = initStock;

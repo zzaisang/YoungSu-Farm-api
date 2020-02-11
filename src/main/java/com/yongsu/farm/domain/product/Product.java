@@ -5,6 +5,8 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.time.OffsetDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author zzai_sang
@@ -40,9 +42,11 @@ public class Product {
     @JoinColumn(name = "package_policy_id",nullable = false,updatable = false)
     private PackagePolicy packagePolicy;
 
-    @OneToOne
-    @JoinColumn(name = "product_stock_id")
-    private ProductStock productStock;
+    @OneToOne(mappedBy = "product")
+    private ProductStock productStockList;
+
+    @OneToMany(mappedBy = "product",cascade = CascadeType.PERSIST)
+    private List<ProductImage> productImageList = new ArrayList<>();
 
     @Builder
     public Product(String name, ProductState state, int price, int maxPurchaseCnt, OffsetDateTime createdAt) {
