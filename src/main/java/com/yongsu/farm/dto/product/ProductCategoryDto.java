@@ -13,13 +13,13 @@ import lombok.NoArgsConstructor;
 @Getter @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class ProductCategoryDto {
 
-    private int id;
+    private int productCategoryId;
 
     private String name;
 
     @Builder
-    public ProductCategoryDto(int id, String name) {
-        this.id = id;
+    public ProductCategoryDto(int productCategoryId, String name) {
+        this.productCategoryId = productCategoryId;
         this.name = name;
     }
 }

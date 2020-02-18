@@ -23,7 +23,7 @@ public class ProductMapper {
                 .map(v ->
                         ProductCategoryDto
                                 .builder()
-                                .id(v.getId())
+                                .productCategoryId(v.getId())
                                 .name(v.getName())
                                 .build()
                 ).collect(Collectors.toList());
