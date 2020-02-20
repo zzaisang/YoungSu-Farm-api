@@ -1,5 +1,6 @@
 package com.yongsu.farm.domain.product;
 
+import com.yongsu.farm.domain.order.OrderDetail;
 import com.yongsu.farm.domain.policy.PackagePolicy;
 import lombok.*;
 
@@ -16,7 +17,7 @@ import java.util.List;
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@ToString(exclude = {"productCategory","packagePolicy","productStock"})
+@ToString(exclude = {"productCategory","packagePolicy","productStock","productImageList","orderDetailList"})
 public class Product {
 
     @Id
@@ -47,6 +48,9 @@ public class Product {
 
     @OneToMany(mappedBy = "product",cascade = CascadeType.PERSIST)
     private List<ProductImage> productImageList = new ArrayList<>();
+
+    @OneToMany(mappedBy = "product",cascade = CascadeType.PERSIST)
+    private List<OrderDetail> orderDetailList = new ArrayList<>();
 
     @Builder
     public Product(String name, ProductState state, int price, int maxPurchaseCnt, OffsetDateTime createdAt) {
