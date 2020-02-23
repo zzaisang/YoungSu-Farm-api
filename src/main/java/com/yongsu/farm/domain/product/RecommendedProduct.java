@@ -1,5 +1,6 @@
 package com.yongsu.farm.domain.product;
 
+import com.yongsu.farm.domain.common.YesNo;
 import lombok.*;
 
 import javax.persistence.Entity;
@@ -23,7 +24,11 @@ public class RecommendedProduct {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    private YesNo useYn;
+
     private long product_id;
+
+    private int listOrder;
 
     private OffsetDateTime createdAt;
 
