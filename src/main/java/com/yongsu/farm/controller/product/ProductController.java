@@ -31,4 +31,10 @@ public class ProductController {
                 ApiResult.fail(codeResult.getCode(), codeResult.getMessage()).createResponseEntity();
     }
 
+    @GetMapping("/recommend")
+    public ResponseEntity<ApiResult> getRecommendList(){
+
+        return null;
+    }
+
 }

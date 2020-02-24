@@ -4,6 +4,7 @@ import com.yongsu.farm.dto.api.Code;
 import com.yongsu.farm.dto.api.CodeResult;
 import com.yongsu.farm.mapper.product.ProductMapper;
 import com.yongsu.farm.repository.product.ProductCategoryRepository;
+import com.yongsu.farm.repository.product.RecommendedProductRepository;
 import com.yongsu.farm.service.product.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -19,10 +20,17 @@ import org.springframework.transaction.annotation.Transactional;
 public class ProductServiceImpl implements ProductService {
 
     private final ProductCategoryRepository productCategoryRepository;
+    private final RecommendedProductRepository recommendedProductRepository;
 
     @Override
-    @Transactional
+    @Transactional(readOnly = true)
     public CodeResult getProductCategoryList() {
         return new CodeResult(Code.SUCCESS, ProductMapper.makeCategoryDtoList(productCategoryRepository.findAll()));
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public CodeResult getRecommendList() {
+        return null;
     }
 }
