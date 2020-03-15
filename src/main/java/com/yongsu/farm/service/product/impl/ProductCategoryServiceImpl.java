@@ -29,11 +29,11 @@ public class ProductCategoryServiceImpl implements ProductCategoryService {
 
     @Override
     @Transactional(readOnly = true)
-    public CodeResult getProductCategoryList() {
+    public CodeResult<List<ProductCategoryDto>> getProductCategoryList() {
 
         final List<ProductCategoryDto> productCategoryDtoList = productCategoryRepository.findAll()
                 .stream()
-                .map(v -> ProductCategoryMapper.makeCategoryDto(v))
+                .map(ProductCategoryMapper::makeCategoryDto)
                 .collect(Collectors.toList());
 
         return new CodeResult(Code.SUCCESS,productCategoryDtoList);
@@ -43,7 +43,7 @@ public class ProductCategoryServiceImpl implements ProductCategoryService {
     @Transactional
     public ProductCategoryDto getProductCategoryDto(Product product) {
         return Optional.ofNullable(product.getProductCategory())
-                .map(v -> ProductCategoryMapper.makeCategoryDto(v))
+                .map(ProductCategoryMapper::makeCategoryDto)
                 .orElseThrow(() -> new BusinessException(Code.BAD_REQUEST,"상품 카테고리가 존재하지 않습니다."));
     }
 }

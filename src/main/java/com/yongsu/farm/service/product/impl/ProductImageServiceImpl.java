@@ -27,7 +27,7 @@ public class ProductImageServiceImpl implements ProductImageService {
         return product.getProductImageList()
                 .stream()
                 .filter(v -> v.getRepresentYn().isYes())
-                .map(v -> ProductImageMapper.makeProductImageDto(v))
+                .map(ProductImageMapper::makeProductImageDto)
                 .collect(Collectors.toList());
     }
 }
