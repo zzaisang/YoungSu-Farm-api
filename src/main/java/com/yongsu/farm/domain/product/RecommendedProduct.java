@@ -26,15 +26,15 @@ public class RecommendedProduct {
 
     private YesNo useYn;
 
-    private long product_id;
+    private long productId;
 
     private int listOrder;
 
     private OffsetDateTime createdAt;
 
     @Builder
-    public RecommendedProduct(long product_id, OffsetDateTime createdAt) {
-        this.product_id = product_id;
+    public RecommendedProduct(long productId, OffsetDateTime createdAt) {
+        this.productId = productId;
         this.createdAt = createdAt;
     }
 }

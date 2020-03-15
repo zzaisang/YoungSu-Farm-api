@@ -43,10 +43,11 @@ logging:
   level:
     # HTTP Request 정보 출력
     org.springframework.web.filter.CommonsRequestLoggingFilter: debug
-    com.laundrygo: debug
+    com.yongsu: debug
     # log4jdbc-log4j2 logging
     org.hibernate.dialect: off
     # 아래 설정은 SQL 파라미터를 표시하되 과도한 로그가 찍히지 않도록 한다.
     org.hibernate.type.BasicTypeRegistry: warn
     # db 파라메터 정보
     org.hibernate.type.descriptor.sql: trace
+    #org.hibernate.type: trace

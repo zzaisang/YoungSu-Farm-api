@@ -34,7 +34,9 @@ public class PackagePolicy {
     @Enumerated(EnumType.STRING)
     private UnitType unitType;
 
-    private int unitCnt;
+    private int minUnitCnt;
+
+    private int maxUnitCnt;
 
     private OffsetDateTime createdAt;
 
@@ -42,12 +44,13 @@ public class PackagePolicy {
     private List<Product> productList = new ArrayList<>();
 
     @Builder
-    public PackagePolicy(PackageType packageType, int packageVolume, PackageVolumeType packageVolumeType, UnitType unitType, int unitCnt, OffsetDateTime createdAt) {
+    public PackagePolicy(PackageType packageType, int packageVolume, PackageVolumeType packageVolumeType, UnitType unitType, int minUnitCnt, int maxUnitCnt, OffsetDateTime createdAt) {
         this.packageType = packageType;
         this.packageVolume = packageVolume;
         this.packageVolumeType = packageVolumeType;
         this.unitType = unitType;
-        this.unitCnt = unitCnt;
+        this.minUnitCnt = minUnitCnt;
+        this.maxUnitCnt = maxUnitCnt;
         this.createdAt = createdAt;
     }
 }

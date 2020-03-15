@@ -1,10 +1,7 @@
 package com.yongsu.farm.mapper.product;
 
-import com.yongsu.farm.domain.product.ProductCategory;
-import com.yongsu.farm.dto.product.ProductCategoryDto;
-
-import java.util.List;
-import java.util.stream.Collectors;
+import com.yongsu.farm.domain.product.Product;
+import com.yongsu.farm.dto.product.ProductDto;
 
 /**
  * @author zzai_sang
@@ -16,16 +13,13 @@ public class ProductMapper {
     private ProductMapper() {
     }
 
-    public static List<ProductCategoryDto> makeCategoryDtoList(List<ProductCategory> productCategoryList) {
-
-        return productCategoryList
-                .stream()
-                .map(v ->
-                        ProductCategoryDto
-                                .builder()
-                                .productCategoryId(v.getId())
-                                .name(v.getName())
-                                .build()
-                ).collect(Collectors.toList());
+    public static ProductDto makeProductDto(Product product){
+        return ProductDto.builder()
+                .productName(product.getName())
+                .productState(product.getState())
+                .price(product.getPrice())
+                .maxPurchaseCnt(product.getMaxPurchaseCnt())
+                .build();
     }
+
 }

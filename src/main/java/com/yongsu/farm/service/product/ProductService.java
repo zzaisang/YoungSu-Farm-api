@@ -1,6 +1,9 @@
 package com.yongsu.farm.service.product;
 
+import com.yongsu.farm.domain.product.Product;
 import com.yongsu.farm.dto.api.CodeResult;
+import com.yongsu.farm.dto.product.ProductDto;
+import com.yongsu.farm.dto.product.ProductInfoDto;
 
 /**
  * @author zzai_sang
@@ -9,7 +12,7 @@ import com.yongsu.farm.dto.api.CodeResult;
  */
 public interface ProductService {
 
-    CodeResult getProductCategoryList();
+    CodeResult<ProductInfoDto> getSaleAbleProductInfoDto(long productId);
 
-    CodeResult getRecommendList();
+    ProductDto getProductDto(Product product);
 }

@@ -17,8 +17,13 @@ import java.time.OffsetDateTime;
 @ToString
 public class ProductImage {
 
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
+    private ProductImagePosition position;
+
+    private int listOrder;
 
     private YesNo representYn;
 
@@ -29,11 +34,13 @@ public class ProductImage {
     private OffsetDateTime createdAt;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "product_id",nullable = false,updatable = false)
+    @JoinColumn(name = "product_id", nullable = false, updatable = false)
     private Product product;
 
     @Builder
-    public ProductImage(YesNo representYn, String name, String url, OffsetDateTime createdAt) {
+    public ProductImage(ProductImagePosition position, int listOrder, YesNo representYn, String name, String url, OffsetDateTime createdAt) {
+        this.position = position;
+        this.listOrder = listOrder;
         this.representYn = representYn;
         this.name = name;
         this.url = url;

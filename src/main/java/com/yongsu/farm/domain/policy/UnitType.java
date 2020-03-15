@@ -19,7 +19,7 @@ import java.util.stream.Stream;
 @AllArgsConstructor
 public enum UnitType {
 
-    APPLE_TYPE(0,"과");
+    APPLE(0,"과");
     
     private int id;
     private String name;
