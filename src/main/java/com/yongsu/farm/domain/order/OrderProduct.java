@@ -15,7 +15,7 @@ import java.time.OffsetDateTime;
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @ToString(exclude = {"product","order"})
-public class OrderDetail {
+public class OrderProduct {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -36,7 +36,7 @@ public class OrderDetail {
     private Order order;
 
     @Builder
-    public OrderDetail(int count, OffsetDateTime modifiedAt, OffsetDateTime createdAt) {
+    public OrderProduct(int count, OffsetDateTime modifiedAt, OffsetDateTime createdAt) {
         this.count = count;
         this.modifiedAt = modifiedAt;
         this.createdAt = createdAt;

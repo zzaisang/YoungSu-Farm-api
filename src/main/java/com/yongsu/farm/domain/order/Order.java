@@ -38,7 +38,7 @@ public class Order {
     private OrderAddress orderAddress;
 
     @OneToMany(mappedBy = "order",cascade = CascadeType.PERSIST)
-    private List<OrderDetail> orderDetailList = new ArrayList<>();
+    private List<OrderProduct> orderProductList = new ArrayList<>();
 
     @Builder
     public Order(int userId, OrderType orderType, OrderStatus status, OffsetDateTime modifiedAt, OffsetDateTime createdAt) {

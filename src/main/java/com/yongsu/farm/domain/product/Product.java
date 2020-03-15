@@ -1,6 +1,6 @@
 package com.yongsu.farm.domain.product;
 
-import com.yongsu.farm.domain.order.OrderDetail;
+import com.yongsu.farm.domain.order.OrderProduct;
 import com.yongsu.farm.domain.policy.PackagePolicy;
 import lombok.*;
 
@@ -50,7 +50,7 @@ public class Product {
     private List<ProductImage> productImageList = new ArrayList<>();
 
     @OneToMany(mappedBy = "product",cascade = CascadeType.PERSIST)
-    private List<OrderDetail> orderDetailList = new ArrayList<>();
+    private List<OrderProduct> orderProductList = new ArrayList<>();
 
     @Builder
     public Product(String name, ProductState state, int price, int maxPurchaseCnt, OffsetDateTime createdAt) {
