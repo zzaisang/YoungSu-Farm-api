@@ -15,7 +15,7 @@ import java.util.List;
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@ToString(exclude = {"orderDetailList"})
+@ToString(exclude = {"orderDetailList","orderAddress"})
 public class Order {
 
     @Id

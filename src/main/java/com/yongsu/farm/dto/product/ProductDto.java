@@ -15,6 +15,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class ProductDto {
 
+    private long productId;
+
     private String productName;
 
     private ProductState productState;
@@ -24,7 +26,8 @@ public class ProductDto {
     private int maxPurchaseCnt;
 
     @Builder
-    public ProductDto(String productName, ProductState productState, int price, int maxPurchaseCnt) {
+    public ProductDto(long productId, String productName, ProductState productState, int price, int maxPurchaseCnt) {
+        this.productId = productId;
         this.productName = productName;
         this.productState = productState;
         this.price = price;
